@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — KsisPainter | Painting Tips & Ideas</title>
+<link rel="stylesheet" href="style.css">
+<style>
+#blog { background: var(--off-white); }
+.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.blog-card { background: var(--white); border-radius: 20px; overflow: hidden; transition: var(--transition); }
+.blog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.blog-img { width:100%; height:200px; object-fit:cover; transition: transform 0.5s; }
+.blog-card:hover .blog-img { transform: scale(1.05); }
+.blog-img-wrap { overflow: hidden; }
+.blog-body { padding: 28px; }
+.blog-cat { font-size:0.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.blog-title { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:12px; line-height:1.4; }
+.blog-excerpt { font-size:0.85rem; color:var(--gray); line-height:1.6; margin-bottom:16px; }
+.blog-meta { display:flex; align-items:center; gap:12px; font-size:0.78rem; color:var(--gray); }
+.blog-meta svg { width: 14px; height: 14px; fill: var(--gold); }
+@media (max-width:1024px) { .blog-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width:768px) { .blog-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div id="loader"><div class="loader-logo">KsisPainter</div><div class="loader-bar"><div class="loader-fill"></div></div></div>
+<a id="whatsapp-btn" href="https://wa.me/919999999999?text=Hi%20KsisPainter!" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-dot"></div>Ksis<span>Painter</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services <span class="dropdown-arrow">▾</span></a><div class="dropdown"><a href="services.html#interior">Interior</a><a href="services.html#exterior">Exterior</a><a href="services.html#texture">Texture</a><a href="services.html#waterproofing">Waterproofing</a></div></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="areas.html">Service Areas</a></li>
+      <li class="active"><a href="blog.html">Resources <span class="dropdown-arrow">▾</span></a><div class="dropdown"><a href="blog.html">Blog &amp; Tips</a><a href="faq.html">FAQ</a><a href="index.html#testimonials">Reviews</a></div></li>
+      <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="page-banner">
+  <div class="page-banner-bg"></div>
+  <div class="page-banner-content">
+    <h1>Painting Tips &amp; <span style="color:var(--gold)">Design Ideas</span></h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Blog</span></div>
+  </div>
+</div>
+<section id="blog">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-label">Tips &amp; Ideas</div>
+      <h2 class="section-h2">Painting Tips &amp; <span>Design Inspiration</span></h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal" style="transition-delay:0.1s">
+        <div class="blog-img-wrap"><img class="blog-img" src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80" alt="Blog" loading="lazy"></div>
+        <div class="blog-body">
+          <div class="blog-cat">Interior Tips</div>
+          <div class="blog-title">Top 10 Colour Combinations for Indian Living Rooms in 2025</div>
+          <div class="blog-excerpt">Choosing the right wall colour can completely transform your living room. Here are our expert picks for this year...</div>
+          <div class="blog-meta">
+            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+            May 2025 &bull; 5 min read
+          </div>
+        </div>
+      </div>
+      <div class="blog-card reveal" style="transition-delay:0.2s">
+        <div class="blog-img-wrap"><img class="blog-img" src="https://images.unsplash.com/photo-1693985120993-e9b203ce7631?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFpbnRpbmclMjB3YWxsJTIwd2F0ZXJwcm9vZnxlbnwwfDB8MHx8fDA%3D" alt="Blog" loading="lazy"></div>
+        <div class="blog-body">
+          <div class="blog-cat">Monsoon Care</div>
+          <div class="blog-title">Waterproofing Your Home Before Mumbai Monsoon: Complete Guide</div>
+          <div class="blog-excerpt">Mumbai's heavy rainfall can damage walls and ceilings. Here's how to protect your home before the rains arrive...</div>
+          <div class="blog-meta">
+            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+            April 2025 &bull; 7 min read
+          </div>
+        </div>
+      </div>
+      <div class="blog-card reveal" style="transition-delay:0.3s">
+        <div class="blog-img-wrap"><img class="blog-img" src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&q=80" alt="Blog" loading="lazy"></div>
+        <div class="blog-body">
+          <div class="blog-cat">Texture Trends</div>
+          <div class="blog-title">Venetian Plaster vs Texture Paint: Which Is Right for You?</div>
+          <div class="blog-excerpt">Both are stunning designer finishes, but they have very different costs, durability, and maintenance needs...</div>
+          <div class="blog-meta">
+            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+            March 2025 &bull; 4 min read
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><span class="footer-logo">Ksis<span>Painter</span></span><p class="footer-about">Maharashtra's trusted painting partner since 2005.</p></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html#interior">Interior</a></li><li><a href="services.html#exterior">Exterior</a></li><li><a href="services.html#texture">Texture</a></li><li><a href="services.html#waterproofing">Waterproofing</a></li></ul></div>
+      <div><div class="footer-col-title">Quick Links</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      <div><div class="footer-col-title">Service Areas</div><ul class="footer-links"><li><a href="areas.html#mumbai">Mumbai</a></li><li><a href="areas.html#thane">Thane</a></li><li><a href="areas.html#pune">Pune</a></li><li><a href="contact.html">Get Quote</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 <span>KsisPainter</span>. All rights reserved. | Mumbai &bull; Thane &bull; Pune</div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

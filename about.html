@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — KsisPainter | Mumbai • Thane • Pune</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* About Story */
+#story { background: var(--cream); }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.story-text p { font-size: 1rem; line-height: 1.8; color: var(--gray); margin-bottom: 20px; }
+
+/* Why Us */
+#why-us { background: var(--white); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.why-img-wrap { position: relative; border-radius: 24px; overflow: hidden; }
+.why-img { width: 100%; height: 550px; object-fit: cover; }
+.why-badge-float {
+  position: absolute; bottom: -24px; right: -24px;
+  background: var(--gold); color: var(--white);
+  border-radius: 20px; padding: 24px 32px;
+  text-align: center; box-shadow: var(--shadow);
+}
+.why-badge-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; }
+.why-badge-label { font-size: 0.75rem; margin-top: 4px; }
+.why-features { margin-top: 32px; display: flex; flex-direction: column; gap: 18px; }
+.why-feature {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 18px; border-radius: 14px;
+  border: 1px solid var(--gray-light); transition: var(--transition);
+}
+.why-feature:hover { border-color: var(--gold); background: var(--cream); }
+.why-feature-icon {
+  width: 44px; height: 44px; background: var(--gold);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.why-feature-icon svg { width: 22px; height: 22px; fill: white; }
+.why-feature-title { font-weight: 600; margin-bottom: 4px; }
+.why-feature-desc { font-size: 0.85rem; color: var(--gray); }
+
+/* Process */
+#process { background: var(--off-white); }
+.process-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px;
+  position: relative; margin-top: 20px;
+}
+.process-steps::before {
+  content: ''; position: absolute;
+  top: 28px; left: 10%; right: 10%;
+  height: 1px; background: var(--gold-light); z-index: 0;
+}
+.process-step { text-align: center; position: relative; z-index: 1; }
+.process-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+  width: 56px; height: 56px; background: var(--gold);
+  color: var(--white); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(201,168,76,0.35);
+}
+.process-title { font-weight: 700; margin-bottom: 10px; }
+.process-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+
+/* Team */
+#team { background: var(--white); }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.team-card { background: var(--off-white); border-radius: 20px; overflow: hidden; transition: var(--transition); text-align: center; }
+.team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.team-img-wrap { position: relative; overflow: hidden; height: 280px; }
+.team-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.team-card:hover .team-img { transform: scale(1.05); }
+.team-social {
+  position: absolute; bottom: -60px; left: 0; right: 0;
+  display: flex; justify-content: center; gap: 10px;
+  padding: 16px; background: rgba(0,0,0,0.7);
+  transition: bottom 0.3s ease;
+}
+.team-card:hover .team-social { bottom: 0; }
+.team-social a {
+  width: 36px; height: 36px; background: var(--gold);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: var(--white); text-decoration: none;
+  transition: background 0.2s;
+}
+.team-social a svg { width: 16px; height: 16px; fill: white; }
+.team-social a:hover { background: var(--accent); }
+.team-body { padding: 24px; }
+.team-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 4px; }
+.team-role { font-size: 0.8rem; color: var(--gold); font-weight: 600; }
+
+@media (max-width: 1024px) {
+  .team-grid { grid-template-columns: repeat(2,1fr); }
+  .process-steps { grid-template-columns: repeat(3,1fr); }
+  .process-steps::before { display: none; }
+}
+@media (max-width: 768px) {
+  .story-grid, .why-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2,1fr); }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-steps::before { display: none; }
+}
+</style>
+</head>
+<body>
+<div id="loader"><div class="loader-logo">KsisPainter</div><div class="loader-bar"><div class="loader-fill"></div></div></div>
+<a id="whatsapp-btn" href="https://wa.me/919999999999?text=Hi%20KsisPainter!" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-dot"></div>Ksis<span>Painter</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services <span class="dropdown-arrow">▾</span></a><div class="dropdown"><a href="services.html#interior">Interior</a><a href="services.html#exterior">Exterior</a><a href="services.html#texture">Texture</a><a href="services.html#waterproofing">Waterproofing</a></div></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li class="active"><a href="about.html">About <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown"><a href="#story">Our Story</a><a href="#team">Our Team</a><a href="#process">Our Process</a><a href="#why-us">Why Choose Us</a></div>
+      </li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="areas.html">Service Areas</a></li>
+      <li><a href="blog.html">Resources <span class="dropdown-arrow">▾</span></a><div class="dropdown"><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="index.html#testimonials">Reviews</a></div></li>
+      <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="page-banner-bg"></div>
+  <div class="page-banner-content">
+    <h1>About <span style="color:var(--gold)">Us</span></h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>About</span></div>
+  </div>
+</div>
+
+<!-- OUR STORY -->
+<section id="story">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-h2">20 Years of Painting <span>Excellence</span></h2>
+    </div>
+    <div class="story-grid reveal">
+      <div class="story-text">
+        <p>KsisPainter was founded in 2005 by Rajesh Ksis with a simple mission — to bring world-class painting quality to Indian homes at honest prices. Starting with just 3 painters in a small workshop in Thane, we've grown into a 50+ member team serving Mumbai, Thane, and Pune.</p>
+        <p>Over the years, we've completed 2,000+ projects ranging from 1BHK apartments to large commercial complexes. Our commitment to quality, transparency, and on-time delivery has made us one of Maharashtra's most trusted painting contractors.</p>
+        <p>We are certified applicators for Asian Paints, Berger, Dulux, and Nerolac — which means you get genuine premium products every time, with the manufacturer's backing.</p>
+        <div style="margin-top:32px">
+          <a href="contact.html" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Work With Us
+          </a>
+        </div>
+      </div>
+      <div style="border-radius:24px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80" alt="Our team" style="width:100%;height:400px;object-fit:cover" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img-wrap reveal-left">
+        <img class="why-img" src="https://images.unsplash.com/photo-1574159613-c9cbdd4f9c2e?w=800&q=80" alt="Our team at work" loading="lazy">
+        <div class="why-badge-float">
+          <div class="why-badge-num">20+</div>
+          <div class="why-badge-label">Years of Excellence</div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-h2">Maharashtra's Most <span>Trusted</span> Painting Service</h2>
+        <p class="section-sub">We've been transforming homes and offices across Mumbai, Thane, and Pune with precision, care, and professional excellence.</p>
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div><div class="why-feature-title">5-Year Paint Guarantee</div><div class="why-feature-desc">We stand behind our work. Every job comes with a 5-year guarantee on materials and workmanship.</div></div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon"><svg viewBox="0 0 24 24"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg></div>
+            <div><div class="why-feature-title">On-Time Completion</div><div class="why-feature-desc">We commit to deadlines. 98% of our projects are delivered on schedule — or we give you a discount.</div></div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon"><svg viewBox="0 0 24 24"><path d="M20.71 5.63l-2.34-2.34a1 1 0 00-1.41 0l-3.12 3.12-1.41-1.42-1.42 1.42 1.41 1.41-6.6 6.6A2 2 0 005 16v3h3a2 2 0 001.42-.59l6.6-6.6 1.41 1.42 1.42-1.42-1.42-1.41 3.12-3.12a1 1 0 000-1.65z"/></svg></div>
+            <div><div class="why-feature-title">Asian Paints Certified</div><div class="why-feature-desc">Certified applicators for Asian Paints, Berger, Dulux, and Nerolac. Only authentic premium products used.</div></div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div><div class="why-feature-title">Zero Mess Promise</div><div class="why-feature-desc">We cover all furniture, protect flooring, and leave your home spotless after every project.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<div class="counters-section">
+  <div class="container">
+    <div class="counters-grid">
+      <div class="counter-item reveal"><div class="counter-num" data-target="2000">0</div><div class="counter-label">Projects Completed</div></div>
+      <div class="counter-item reveal" style="transition-delay:0.15s"><div class="counter-num" data-target="20">0</div><div class="counter-label">Years in Business</div></div>
+      <div class="counter-item reveal" style="transition-delay:0.3s"><div class="counter-num" data-target="50">0</div><div class="counter-label">Expert Painters</div></div>
+      <div class="counter-item reveal" style="transition-delay:0.45s"><div class="counter-num" data-target="98">0</div><div class="counter-label">% Client Satisfaction</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-h2">Our <span>Proven</span> 5-Step Process</h2>
+      <p class="section-sub" style="margin:0 auto">A streamlined process that ensures zero hassle and maximum quality — every single time.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal" style="transition-delay:0.1s"><div class="process-num">01</div><div class="process-title">Free Consultation</div><div class="process-desc">Call or WhatsApp us. Our expert visits your site for a free inspection and assessment.</div></div>
+      <div class="process-step reveal" style="transition-delay:0.2s"><div class="process-num">02</div><div class="process-title">Custom Quote</div><div class="process-desc">Receive a detailed, transparent quote within 24 hours. No hidden costs. Ever.</div></div>
+      <div class="process-step reveal" style="transition-delay:0.3s"><div class="process-num">03</div><div class="process-title">Color Selection</div><div class="process-desc">Our colour consultants help you choose the perfect shades for your home or office.</div></div>
+      <div class="process-step reveal" style="transition-delay:0.4s"><div class="process-num">04</div><div class="process-title">Expert Execution</div><div class="process-desc">Our skilled painters begin work with precision, using premium materials and tools.</div></div>
+      <div class="process-step reveal" style="transition-delay:0.5s"><div class="process-num">05</div><div class="process-title">Final Handover</div><div class="process-desc">We clean up completely and do a quality walkthrough with you before closing the job.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-label">Meet The Team</div>
+      <h2 class="section-h2">The <span>Artists</span> Behind Your Dream Walls</h2>
+      <p class="section-sub" style="margin:0 auto">Our team of certified, skilled, and passionate painting professionals.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal" style="transition-delay:0.1s">
+        <div class="team-img-wrap">
+          <img class="team-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Rajesh" loading="lazy">
+          <div class="team-social">
+            <a href="https://instagram.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://facebook.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://wa.me/919999999999" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body"><div class="team-name">Rajesh Ksis</div><div class="team-role">Founder &amp; Master Painter</div></div>
+      </div>
+      <div class="team-card reveal" style="transition-delay:0.2s">
+        <div class="team-img-wrap">
+          <img class="team-img" src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&q=80" alt="Amit" loading="lazy">
+          <div class="team-social">
+            <a href="https://instagram.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://facebook.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body"><div class="team-name">Amit Verma</div><div class="team-role">Senior Texture Specialist</div></div>
+      </div>
+      <div class="team-card reveal" style="transition-delay:0.3s">
+        <div class="team-img-wrap">
+          <img class="team-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Pooja" loading="lazy">
+          <div class="team-social">
+            <a href="https://instagram.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body"><div class="team-name">Pooja Mehta</div><div class="team-role">Colour Consultant</div></div>
+      </div>
+      <div class="team-card reveal" style="transition-delay:0.4s">
+        <div class="team-img-wrap">
+          <img class="team-img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Suresh" loading="lazy">
+          <div class="team-social">
+            <a href="https://instagram.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          </div>
+        </div>
+        <div class="team-body"><div class="team-name">Suresh Patil</div><div class="team-role">Waterproofing Expert</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><span class="footer-logo">Ksis<span>Painter</span></span><p class="footer-about">Maharashtra's trusted painting partner since 2005.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://facebook.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://wa.me/919999999999" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div><div class="footer-col-title">About</div><ul class="footer-links"><li><a href="#story">Our Story</a></li><li><a href="#team">Our Team</a></li><li><a href="#process">Our Process</a></li><li><a href="#why-us">Why Choose Us</a></li></ul></div>
+      <div><div class="footer-col-title">Quick Links</div><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Service Areas</div><ul class="footer-links"><li><a href="areas.html#mumbai">Mumbai</a></li><li><a href="areas.html#thane">Thane</a></li><li><a href="areas.html#pune">Pune</a></li><li><a href="contact.html">Get Quote</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 <span>KsisPainter</span>. All rights reserved. | Mumbai &bull; Thane &bull; Pune</div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
